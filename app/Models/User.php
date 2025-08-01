@@ -57,4 +57,44 @@ class User extends Authenticatable
         }
         return asset('images/default-avatar.png');
     }
+
+    /**
+     * Relation avec les cours
+     */
+    public function courses()
+    {
+        return $this->hasMany(Course::class);
+    }
+
+    /**
+     * Relation avec la progression
+     */
+    public function progress()
+    {
+        return $this->hasMany(UserProgress::class);
+    }
+
+    /**
+     * Relation avec les suggestions de cours
+     */
+    public function courseSuggestions()
+    {
+        return $this->hasMany(CourseSuggestion::class);
+    }
+
+    /**
+     * Relation avec les votes sur les suggestions
+     */
+    public function suggestionVotes()
+    {
+        return $this->hasMany(SuggestionVote::class);
+    }
+
+    /**
+     * Relation avec les tentatives d'exercices
+     */
+    public function exerciseAttempts()
+    {
+        return $this->hasMany(UserExerciseAttempt::class);
+    }
 }

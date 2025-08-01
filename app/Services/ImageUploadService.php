@@ -39,7 +39,7 @@ class ImageUploadService
         return false;
     }
 
-    /**
+        /**
      * Obtenir l'URL d'une image
      */
     public function getImageUrl($path, $defaultImage = null): string
@@ -49,5 +49,36 @@ class ImageUploadService
         }
 
         return $defaultImage ? asset($defaultImage) : asset('images/default-avatar.png');
+    }
+
+    /**
+     * Upload un thumbnail de cours
+     */
+    public function uploadThumbnail(UploadedFile $file, $oldThumbnail = null): string
+    {
+        // Supprimer l'ancien thumbnail si il existe
+        if ($oldThumbnail && Storage::disk('public')->exists($oldThumbnail)) {
+            Storage::disk('public')->delete($oldThumbnail);
+        }
+
+        // Générer un nom unique pour l'image
+        $fileName = time() . '_' . Str::random(10) . '.' . $file->getClientOriginalExtension();
+
+        // Stocker l'image
+        $file->storeAs('thumbnails', $fileName, 'public');
+
+        return 'thumbnails/' . $fileName;
+    }
+
+    /**
+     * Supprimer un thumbnail de cours
+     */
+    public function deleteThumbnail($thumbnailPath): bool
+    {
+        if ($thumbnailPath && Storage::disk('public')->exists($thumbnailPath)) {
+            return Storage::disk('public')->delete($thumbnailPath);
+        }
+
+        return false;
     }
 }

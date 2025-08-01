@@ -1,66 +1,282 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🎓 EduAI - Plateforme d'Apprentissage Intelligente
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+[![Laravel](https://img.shields.io/badge/Laravel-10.x-red.svg)](https://laravel.com)
+[![PHP](https://img.shields.io/badge/PHP-8.1+-blue.svg)](https://php.net)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-## About Laravel
+## 📖 Vue d'ensemble
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+**EduAI** est une plateforme d'apprentissage en ligne moderne construite avec Laravel 10. Elle offre un système complet de gestion de cours, leçons, exercices et suivi de progression des utilisateurs, avec une architecture prête pour l'intégration d'IA.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## ✨ Fonctionnalités Principales
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 🎯 **Gestion des Utilisateurs**
+- ✅ Inscription et authentification sécurisée
+- ✅ Profils avec avatars et métadonnées
+- ✅ Gestion des rôles et permissions
+- ✅ Historique d'activité complet
 
-## Learning Laravel
+### 📚 **Système de Cours**
+- ✅ Création et gestion de cours avec ressources dynamiques
+- ✅ Système de catégories pour l'organisation
+- ✅ Leçons générées par IA (préparé)
+- ✅ Métadonnées complètes (rating, vues, etc.)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 🎯 **Exercices et Évaluation**
+- ✅ Quiz à choix unique/multiple
+- ✅ Exercices pratiques avec feedback
+- ✅ Système de scoring avancé
+- ✅ Évaluation de niveau au début des cours
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### 📊 **Suivi et Analytics**
+- ✅ Progression personnalisée par utilisateur
+- ✅ Statistiques admin complètes
+- ✅ Boîte à suggestions avec votes
+- ✅ Dashboard de performance
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 🔌 **API RESTful**
+- ✅ API complète et documentée
+- ✅ Authentification via Laravel Sanctum
+- ✅ Validation robuste des données
+- ✅ Gestion d'erreurs centralisée
 
-## Laravel Sponsors
+## 🚀 Installation Rapide
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Prérequis
+- PHP 8.1+
+- Composer
+- MySQL 5.7+ ou PostgreSQL 10+
+- Node.js 16+
 
-### Premium Partners
+### Installation
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+```bash
+# 1. Cloner le projet
+git clone https://github.com/votre-repo/EduAI.git
+cd EduAI
 
-## Contributing
+# 2. Installer les dépendances
+composer install
+npm install
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+# 3. Configuration
+cp .env.example .env
+php artisan key:generate
 
-## Code of Conduct
+# 4. Configurer la base de données dans .env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=eduai
+DB_USERNAME=root
+DB_PASSWORD=
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+# 5. Migrations et données de test
+php artisan migrate
+php artisan storage:link
+php artisan db:seed
 
-## Security Vulnerabilities
+# 6. Compiler les assets
+npm run build
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+# 7. Démarrer le serveur
+php artisan serve
+```
 
-## License
+Votre application sera disponible sur `http://localhost:8000`
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 📚 Documentation
+
+### 📖 Documentation Complète
+- **[Documentation Complète](EDUAI_COMPLETE_DOCUMENTATION.md)** - Guide complet du projet
+
+### 🔌 API Documentation
+- **[API Générale](API_DOCUMENTATION.md)** - Vue d'ensemble de l'API
+- **[Utilisateurs](API_DOCUMENTATION.md)** - Gestion des utilisateurs
+- **[Catégories](CATEGORIE_API_DOCUMENTATION.md)** - Gestion des catégories
+- **[Cours](COURSE_API_DOCUMENTATION.md)** - Gestion des cours
+- **[Leçons](LESSON_API_DOCUMENTATION.md)** - Gestion des leçons
+- **[Exercices](EXERCISE_API_DOCUMENTATION.md)** - Système d'exercices
+- **[Progression](USER_PROGRESS_API_DOCUMENTATION.md)** - Suivi de progression
+- **[Suggestions](COURSE_SUGGESTION_API_DOCUMENTATION.md)** - Boîte à suggestions
+- **[Évaluation](COURSE_ASSESSMENT_API_DOCUMENTATION.md)** - Tests de niveau
+- **[Statistiques Admin](ADMIN_STATISTICS_DOCUMENTATION.md)** - Dashboard admin
+
+## 🏗️ Architecture
+
+### Structure du Projet
+```
+EduAI/
+├── app/
+│   ├── Http/Controllers/          # Contrôleurs API
+│   ├── Models/                    # Modèles Eloquent
+│   ├── Services/                  # Services métier
+│   └── Http/Requests/             # Validation des données
+├── database/
+│   ├── migrations/                # Schéma de base de données
+│   └── seeders/                   # Données de test
+├── routes/api.php                 # Routes API
+└── config/                        # Configuration
+```
+
+### Modèles Principaux
+- **User** - Gestion des utilisateurs et authentification
+- **Course** - Cours et contenu principal
+- **Lesson** - Leçons détaillées des cours
+- **Exercise** - Exercices et quiz
+- **UserProgress** - Suivi de progression
+- **CourseSuggestion** - Boîte à suggestions
+- **Categorie** - Organisation des cours
+
+## 🔌 API Endpoints
+
+### Authentification
+```bash
+POST /api/auth/login
+POST /api/auth/register
+POST /api/auth/logout
+```
+
+### Utilisateurs
+```bash
+GET    /api/users
+POST   /api/users
+GET    /api/users/{id}
+PUT    /api/users/{id}
+DELETE /api/users/{id}
+```
+
+### Cours
+```bash
+GET    /api/courses
+POST   /api/courses
+GET    /api/courses/{id}
+PUT    /api/courses/{id}
+DELETE /api/courses/{id}
+```
+
+### Exercices
+```bash
+GET    /api/exercises
+POST   /api/exercises
+POST   /api/exercises/{id}/start
+POST   /api/exercise-attempts/{id}/submit
+```
+
+### Statistiques Admin
+```bash
+GET    /api/admin/statistics
+```
+
+## 🧪 Tests
+
+```bash
+# Exécuter tous les tests
+php artisan test
+
+# Tests spécifiques
+php artisan test --filter=UserTest
+php artisan test --filter=CourseTest
+```
+
+## 🚀 Déploiement
+
+### Production
+```bash
+# Optimisation
+composer install --no-dev --optimize-autoloader
+php artisan optimize
+npm run build
+
+# Configuration
+APP_ENV=production
+APP_DEBUG=false
+CACHE_DRIVER=redis
+SESSION_DRIVER=redis
+```
+
+### Docker (Optionnel)
+```bash
+docker-compose up -d
+```
+
+## 🔧 Configuration
+
+### Variables d'Environnement Importantes
+```env
+APP_NAME=EduAI
+APP_ENV=production
+APP_URL=https://votre-domaine.com
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_DATABASE=eduai
+DB_USERNAME=root
+DB_PASSWORD=
+
+FILESYSTEM_DISK=public
+UPLOAD_MAX_FILESIZE=10M
+```
+
+## 📊 Fonctionnalités Avancées
+
+### 🤖 Intégration IA (Préparé)
+- Génération automatique de leçons
+- Évaluation de niveau intelligente
+- Recommandations personnalisées
+- Contenu adaptatif
+
+### 📈 Analytics Avancés
+- Statistiques en temps réel
+- Métriques d'engagement
+- Performance des cours
+- Tendances utilisateurs
+
+### 🔒 Sécurité
+- Authentification JWT via Sanctum
+- Validation robuste des données
+- Protection CSRF
+- Upload sécurisé des fichiers
+
+## 🤝 Contribution
+
+1. Fork le projet
+2. Créer une branche feature (`git checkout -b feature/AmazingFeature`)
+3. Commit les changements (`git commit -m 'Add some AmazingFeature'`)
+4. Push vers la branche (`git push origin feature/AmazingFeature`)
+5. Ouvrir une Pull Request
+
+## 📝 Changelog
+
+### Version 1.0.0
+- ✅ Système complet de gestion des utilisateurs
+- ✅ Gestion des catégories et cours
+- ✅ Système de leçons avec contenu riche
+- ✅ Exercices et quiz avec scoring
+- ✅ Suivi de progression personnalisé
+- ✅ Boîte à suggestions avec votes
+- ✅ Évaluation de niveau des cours
+- ✅ Statistiques admin complètes
+- ✅ API RESTful complète
+
+## 📄 Licence
+
+Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
+
+## 🙏 Remerciements
+
+- **Laravel Team** pour le framework exceptionnel
+- **Contributors** pour leurs contributions
+- **Community** pour le support et les retours
+
+---
+
+## 📞 Support
+
+- 📖 **[Documentation Complète](EDUAI_COMPLETE_DOCUMENTATION.md)**
+- 🐛 **[Issues](https://github.com/votre-repo/EduAI/issues)**
+- 💬 **[Discussions](https://github.com/votre-repo/EduAI/discussions)**
+
+---
+
+**EduAI** - Transformez l'apprentissage avec l'intelligence artificielle 🚀
